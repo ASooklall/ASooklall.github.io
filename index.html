@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>My first page</title>
+    <style type="text/css">
+
+    html,body,canvas {
+       padding:0px;
+       margin:0px;
+       height:100%;
+    }
+    
+    body {
+       background-image: linear-gradient(to right,#FFD700,#8B0000);
+    }
+    
+    canvas {
+       position:absolute;
+       top: 30px;
+       right: 400px;
+       display:block;
+       margin:auto;
+       width:40vmin;
+       height:40vmin;
+    }
+    
+    .button {
+    background-color: rgb(60, 180, 250); /* Green */
+    border: none;
+    color: white;
+    padding: 25px 52px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    }
+        
+    .rainbow {
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    }
+
+    table, th, td {
+    border: 1px solid rgb(44, 206, 255);
+    background-image:linear-gradient(to bottom,rgb(113, 255, 108),rgb(10, 238, 238));
+    width:800px;
+    height:30px;
+    }
+
+    </style>
+    </head>
+
+    <body data-rsssl=1>
+        <h1>Hello World!</h1>
+        <br>
+        <a href="http://www.google.com" target="_blank"><img src=https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png></a>
+          
+        <a href="http://www.google.com" target="_blank" class="button"><span class="rainbow">Google</span></a>
+              <div align="right">
+        <a href="http://www.google.com" target="_blank"><img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" style="transform:rotate(90deg);"></a>
+        </div>
+        <canvas width="400" height="400"></canvas>
+        <script type="text/javascript">
+    
+            var canvas = document.querySelector("canvas");
+            var ctx = canvas.getContext("2d");
+            
+            ctx.font = "900 80px sans-serif";
+            ctx.lineWidth=2;
+            var str = "Google";
+            var strwidth = ctx.measureText(str).width;
+            
+            var width=canvas.width;
+            
+            
+            var c=0;
+            var color=0;
+            var img;
+            
+            (function a() {
+            img=ctx.getImageData(0,0,width,width);
+            ctx.putImageData(img,0,10);
+            ctx.save();
+            ctx.translate((width/2),width/2);
+            ctx.rotate(Math.PI*(c++/200));
+            
+            ctx.fillStyle='hsla('+(color=color+4%360)+', 100%, 50%, 1)';
+            ctx.fillText("Google",-(strwidth/2),20);
+            ctx.strokeText("Google",-(strwidth/2),20);
+            
+            ctx.restore();
+            
+            
+            requestAnimationFrame(a);
+            })();
+
+        </script>
+
+        <br>
+
+        <font size=12 color=Blue>Testing</font>
+        <br>
+        <a href="https://www.google.com" target="_blank"><strong><font size=10>Opens a new tab!</font></strong></a>
+        <br>
+        <a href="#">This is a placeholder only.</a>
+        <br>
+        <font size=22 color=Purple><object align="middle">This is the middle, but Google is always Right.</object></font>
+        <br>
+        <div align="center">
+            <h1><span class="rainbow"><font size=6>Q1 Regional Sales</font></span></h1>
+
+            <table>
+                    <tr>
+                        <th>Region</th>
+                        <th>Sales Person</th>
+                        <th>Amount</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td>North-West</td>
+                        <td>Tim</td>
+                        <td>$3,000</td>
+                        <td>$24,700</td>
+                    </tr>
+                    <tr>
+                        <td>South-East</td>
+                        <td>Ashley</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td>South-East</td>
+                        <td>Tim</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td>South-West</td>
+                        <td>Jeff</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td>North-West</td>
+                        <td>Sarah</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td>North-East</td>
+                        <td>Alex</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td>North-East</td>
+                        <td>Kevin</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td>South-East</td>
+                        <td>Patricia</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td>South-West</td>
+                        <td>Arnold</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td>North-West</td>
+                        <td>Lndsay</td>
+                        <td>$3,000</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">Q1 Employee Sales By Region</td>
+                    </tr>
+                </table>
+        </div>
+
+        <br>
+
+        <div align="center">
+            <a href="https://github.com/ASooklall/project-1-cvd" target="_blank"><img src="mf_bar.png" alt="Project 1 Barplot"></a>
+        </div>
+    
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
